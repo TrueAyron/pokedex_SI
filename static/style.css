@@ -148,3 +148,29 @@ position: absolute;
     background-color: #A8A878;
     /* Hover effect for reset button */
 }
+
+.type-button:active {
+    transform: translateY(2px);
+    /* Button is pushed down when clicked */
+    box-shadow: 0 2px #555;
+}
+
+/* Style for the selected option when the select is focused */
+.input_type:focus+.type-buttons .type-button {
+    transform: translateY(2px);
+    /* Button is pushed down when the select is focused */
+    box-shadow: 0 2px #555;
+}
+
+.type-button.pressed {
+    transform: translateY(2px);
+    /* Button is pushed down when pressed */
+    box-shadow: 0 2px #555;
+}
+
+/* Style for the selected option when the select is focused */
+.input_type:focus+.type-buttons .type-button {
+    transform: translateY(2px);
+    /* Button is pushed down when the select is focused */
+    box-shadow: 0 2px #555;
+}

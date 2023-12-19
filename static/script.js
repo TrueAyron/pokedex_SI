@@ -77,12 +77,22 @@ if (typesSelect) {
     });
 }
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const userInput = input.value.toLowerCase();
+
     if (currentType === 'all') {
-        renderPokemon(input.value.toLowerCase());
+        const pokemonId = parseInt(userInput);
+        if (!isNaN(pokemonId) && pokemonId >= 1 && pokemonId <= totalPokemon) {
+            currentIndex = pokemonId;
+            renderPokemon(currentIndex);
+        } else {
+            pokemonName.innerHTML = 'Não encontrado';
+            pokemonNumber.innerHTML = '';
+            pokemonImage.style.display = 'none';
+        }
     } else {
-        const pokemonIndex = currentPokemonList.findIndex(pokemon => pokemon === input.value.toLowerCase());
+        const pokemonIndex = currentPokemonList.findIndex(pokemon => pokemon === userInput);
         if (pokemonIndex !== -1) {
             currentIndex = pokemonIndex;
             renderPokemon(currentPokemonList[currentIndex]);
@@ -101,8 +111,13 @@ buttonPrev.addEventListener('click', () => {
             renderPokemon(currentIndex);
         }
     } else {
-        if (currentIndex > 0) {
-            currentIndex -= 1;
+        let prevIndex = currentIndex - 1;
+        while (prevIndex >= 0 && !currentPokemonList[prevIndex].types.some(type => type.type.name === currentType)) {
+            prevIndex -= 1;
+        }
+
+        if (prevIndex >= 0) {
+            currentIndex = prevIndex;
             renderPokemon(currentPokemonList[currentIndex]);
         }
     }
@@ -115,12 +130,18 @@ buttonNext.addEventListener('click', () => {
             renderPokemon(currentIndex);
         }
     } else {
-        if (currentIndex < currentPokemonList.length - 1) {
-            currentIndex += 1;
+        let nextIndex = currentIndex + 1;
+        while (nextIndex < currentPokemonList.length && !currentPokemonList[nextIndex].types.some(type => type.type.name === currentType)) {
+            nextIndex += 1;
+        }
+
+        if (nextIndex < currentPokemonList.length) {
+            currentIndex = nextIndex;
             renderPokemon(currentPokemonList[currentIndex]);
         }
     }
 });
+
 
 const btnNormal = document.getElementById('btn-normal');
 const btnGrass = document.getElementById('btn-grass');
