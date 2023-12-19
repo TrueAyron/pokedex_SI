@@ -74,7 +74,7 @@ position: absolute;
     gap: 20px;
 }
 
-.botton{
+.button{
     width: 50%;
     padding: 4%;
     border: 2px solid #000;
@@ -86,91 +86,8 @@ position: absolute;
     box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
 }
 
-.botton:active{
+.button:active{
     box-shadow: inset -4px 4px 0 #222;
     font-size: 0.9rem;
 }
 
-
-/* Type buttons container */
-.type-buttons {
-    margin: 20px;
-    text-align: center;
-    /* Center the buttons */
-}
-
-/* General style for all type buttons */
-.type-button {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px #555;
-}
-
-/* Add :hover effect for buttons */
-.type-button:hover {
-    transform: translateY(-2px);
-    /* Button "lifts" up when hovered */
-    box-shadow: 0 6px #555;
-}
-
-/* Individual styles for each button */
-.type-button.normal {
-    background-color: #A8A878;
-}
-
-.type-button.grass {
-    background-color: #78C850;
-}
-
-.type-button.fire {
-    background-color: #F08030;
-}
-
-.type-button.water {
-    background-color: #6890F0;
-}
-
-/* ... Add other buttons with their respective colors ... */
-.type-button.reset {
-    background-color: #E0E0E0;
-    color: black;
-}
-
-/* Modify the reset button to match the black color from the image */
-.type-button.reset:hover {
-    background-color: #A8A878;
-    /* Hover effect for reset button */
-}
-
-.type-button:active {
-    transform: translateY(2px);
-    /* Button is pushed down when clicked */
-    box-shadow: 0 2px #555;
-}
-
-/* Style for the selected option when the select is focused */
-.input_type:focus+.type-buttons .type-button {
-    transform: translateY(2px);
-    /* Button is pushed down when the select is focused */
-    box-shadow: 0 2px #555;
-}
-
-.type-button.pressed {
-    transform: translateY(2px);
-    /* Button is pushed down when pressed */
-    box-shadow: 0 2px #555;
-}
-
-/* Style for the selected option when the select is focused */
-.input_type:focus+.type-buttons .type-button {
-    transform: translateY(2px);
-    /* Button is pushed down when the select is focused */
-    box-shadow: 0 2px #555;
-}
