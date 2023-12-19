@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png">
+    <link rel="icon"
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Pokebola-pokeball-png-0.png/601px-Pokebola-pokeball-png-0.png">
     <link rel="stylesheet" href="static\style.css">
 
-    <script defer src="/static/script.js">
-
-    </script>
+    <script defer src="/static/script.js"></script>
 
     <title>Pokedéx</title>
 </head>
+
 <body>
     <main>
         <img src="" alt="pokemon" class="pokemon_image">
@@ -23,12 +24,9 @@
         </h1>
 
         <form class="form">
-            <input 
-            type="search"
-            class="input_search"
-            placeholder="Nome ou Numero"
-            required
-            >
+            <input type="search" class="input_search" placeholder="Nome ou Numero" required>
+
+
         </form>
 
         <div class="buttons">
@@ -36,8 +34,17 @@
             <button class="botton btn-next">&gt;&gt;</button>
         </div>
 
-        <img src="https://media.discordapp.net/attachments/837122788179443792/1185709039968063498/pokedex.png" alt="pokedex" class="pokedex">
+        <img src="https://media.discordapp.net/attachments/837122788179443792/1185709039968063498/pokedex.png"
+            alt="pokedex" class="pokedex">
 
     </main>
-</body>
+
+    <div class="type-buttons">
+        <button class="type-button normal" id="btn-normal">Normal</button>
+        <button class="type-button grass" id="btn-grass">Grass</button>
+        <button class="type-button fire" id="btn-fire">Fire</button>
+        <!-- Adicione outros botões de tipo semelhantemente -->
+        <button class="type-button reset" id="btn-reset">Reset</button>
+    </div>
+    </body>
 </html>
