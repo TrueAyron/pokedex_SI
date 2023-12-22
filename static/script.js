@@ -54,16 +54,27 @@ document.addEventListener('DOMContentLoaded', function () {
         input.value = ''; // Limpar a entrada após o processamento
     };
 
-    form.addEventListener('submit', function (event) {
+    form.addEventListener('submit', async function (event) {
         event.preventDefault();
-        const userInput = input.value.trim();
-        const pokemonId = parseInt(userInput, 10);
+        const userInput = input.value.trim().toLowerCase();
 
-        if (!isNaN(pokemonId) && pokemonId > 0) {
-            searchPokemon = pokemonId;
-            renderPokemon(searchPokemon);
+        if (userInput) {
+            if (!isNaN(userInput)) {
+                const pokemonId = parseInt(userInput, 10);
+                searchPokemon = pokemonId;
+                renderPokemon(searchPokemon);
+            } else {
+                // Se não for um número, tentar buscar pelo nome
+                const data = await fetchPokemon(userInput);
+                if (data) {
+                    searchPokemon = data.id;
+                    renderPokemon(searchPokemon);
+                } else {
+                    alert('Pokémon não encontrado. Por favor, insira um número ou nome de Pokémon válido.');
+                }
+            }
         } else {
-            alert('Por favor, insira um número de Pokémon válido.');
+            alert('Por favor, insira um número ou nome de Pokémon válido.');
         }
     });
 
